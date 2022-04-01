@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Industry } from '../class/bm003-industry';
+import { environment } from 'src/environments/environment';
 //import { INDUSTRIES } from '../mock-industry';
 
 @Injectable({
@@ -11,16 +12,15 @@ import { Industry } from '../class/bm003-industry';
 })
 export class IndustryService {
 
-  private industriesUrl = "http://localhost:8080/api/industryList";  // Web APIのURL
-  //private industriesUrl = "https://portalemd.herokuapp.com/api/industryList";  // Web APIのURL
-
+  private industriesUrl = "/api/industryList";  // Web APIのURL
+  
   constructor(
     private http: HttpClient
     ) { }
 
   getIndustries(): Observable<Industry[]> {
     console.log('ok');
-    return this.http.get<Industry[]>(this.industriesUrl)
+    return this.http.get<Industry[]>(environment.apiUrl + this.industriesUrl)
     .pipe(
       //tap(industries => this.log('fetched heroes')),
       catchError(this.handleError<Industry[]>('getIndustries', []))
