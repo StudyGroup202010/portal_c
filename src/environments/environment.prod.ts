@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  piUrl: 'https://portalemd.herokuapp.com'
+  apiUrl: 'https://portalemd.herokuapp.com'
 };
