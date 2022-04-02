@@ -12,11 +12,7 @@ import { IndustryComponent } from './component/bm003-industry/bm003-industry.com
 //import { InMemoryDataService } from './service/in-memory-data.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    IndustryComponent
-  ],
+  declarations: [AppComponent, DashboardComponent, IndustryComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -32,4 +28,4 @@ import { IndustryComponent } from './component/bm003-industry/bm003-industry.com
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

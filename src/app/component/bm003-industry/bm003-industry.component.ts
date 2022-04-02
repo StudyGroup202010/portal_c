@@ -10,7 +10,6 @@ import { IndustryService } from '../../service/industry.service';
   styleUrls: ['./bm003-industry.component.less']
 })
 export class IndustryComponent implements OnInit {
-
   industries: Industry[] = [];
 
   constructor(private industryService: IndustryService) {}
@@ -20,8 +19,6 @@ export class IndustryComponent implements OnInit {
   }
 
   getIndustries(): void {
-    this.industryService.getIndustries()
-    .subscribe(industries => this.industries = industries);
+    this.industryService.getIndustries().subscribe((industries) => (this.industries = industries));
   }
-
 }

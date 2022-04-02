@@ -8,9 +8,8 @@ describe('Bm003IndustryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IndustryComponent ]
-    })
-    .compileComponents();
+      declarations: [IndustryComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

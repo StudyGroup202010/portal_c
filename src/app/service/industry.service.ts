@@ -11,39 +11,34 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class IndustryService {
+  private industriesUrl = '/api/industryList'; // Web APIのURL
 
-  private industriesUrl = "/api/industryList";  // Web APIのURL
-  
-  constructor(
-    private http: HttpClient
-    ) { }
+  constructor(private http: HttpClient) {}
 
   getIndustries(): Observable<Industry[]> {
     console.log('ok');
-    return this.http.get<Industry[]>(environment.apiUrl + this.industriesUrl)
-    .pipe(
+    return this.http.get<Industry[]>(environment.apiUrl + this.industriesUrl).pipe(
       //tap(industries => this.log('fetched heroes')),
       catchError(this.handleError<Industry[]>('getIndustries', []))
     );
   }
 
-/**
- * 失敗したHttp操作を処理します。
- * アプリを持続させます。
- * @param operation - 失敗した操作の名前
- * @param result - observableな結果として返す任意の値
- */
-private handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
+  /**
+   * 失敗したHttp操作を処理します。
+   * アプリを持続させます。
+   * @param operation - 失敗した操作の名前
+   * @param result - observableな結果として返す任意の値
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // TODO: リモート上のロギング基盤にエラーを送信する
+      console.error(error); // かわりにconsoleに出力
 
-    // TODO: リモート上のロギング基盤にエラーを送信する
-    console.error(error); // かわりにconsoleに出力
+      // TODO: ユーザーへの開示のためにエラーの変換処理を改善する
+      //this.log(`${operation} failed: ${error.message}`);
 
-    // TODO: ユーザーへの開示のためにエラーの変換処理を改善する
-    //this.log(`${operation} failed: ${error.message}`);
-
-    // 空の結果を返して、アプリを持続可能にする
-    return of(result as T);
-  };
-}
+      // 空の結果を返して、アプリを持続可能にする
+      return of(result as T);
+    };
+  }
 }
