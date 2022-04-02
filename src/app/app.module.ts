@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { IndustryComponent } from './component/bm003-industry/bm003-industry.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService } from './service/in-memory-data.service';
@@ -17,7 +18,8 @@ import { IndustryComponent } from './component/bm003-industry/bm003-industry.com
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
