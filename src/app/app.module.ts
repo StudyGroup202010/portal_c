@@ -8,12 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { IndustryComponent } from './component/bm003-industry/bm003-industry.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
 
 //import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService } from './service/in-memory-data.service';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, IndustryComponent],
+  declarations: [AppComponent, DashboardComponent, IndustryComponent, HeaderComponent],
   imports: [
     BrowserModule,
     FormsModule,
